@@ -206,3 +206,17 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 khel_backend/firebase_key.json
+
+node_modules/
+dist/
+build/
+
+# Python / Backend
+__pycache__/
+*.pyc
+.env
+
+# Misc
+.DS_Store
+.vscode/
+.idea/
