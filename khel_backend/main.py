@@ -13,7 +13,7 @@ from khel_backend.auth import (
     get_current_user,
 )
 from khel_backend.schemas import RegisterIn, LoginIn, ResultIn, ProfileUpdateIn
-from config import FIREBASE_KEY, FIREBASE_BUCKET
+from config import FIREBASE_SERVICE_ACCOUNT, FIREBASE_BUCKET
 import uuid, firebase_admin, datetime
 from firebase_admin import credentials, storage
 
@@ -36,7 +36,7 @@ models.Base.metadata.create_all(bind=database.engine)
 # Firebase Config
 # -------------------------
 try:
-    cred = credentials.Certificate(FIREBASE_KEY)
+    cred = credentials.Certificate(FIREBASE_SERVICE_ACCOUNT)
     if not firebase_admin._apps:
         firebase_admin.initialize_app(cred, {"storageBucket": FIREBASE_BUCKET})
     bucket = storage.bucket()
