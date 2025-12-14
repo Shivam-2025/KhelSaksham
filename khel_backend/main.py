@@ -2,9 +2,9 @@ from sqlalchemy import text
 from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
-import database 
-import models
-from auth import (
+from khel_backend import database 
+from khel_backend import models
+from khel_backend.auth import (
     hash_password,
     verify_password,
     create_access_token,
