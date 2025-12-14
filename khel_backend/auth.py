@@ -12,7 +12,7 @@ from khel_backend.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_HOURS
 # -------------------------
 # Security Setup
 # -------------------------
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
 # OAuth2PasswordBearer expects a login route where tokens are retrieved
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
