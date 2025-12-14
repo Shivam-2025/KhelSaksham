@@ -12,7 +12,7 @@ from khel_backend.auth import (
     decode_token,
     get_current_user,
 )
-from schemas import RegisterIn, LoginIn, ResultIn, ProfileUpdateIn
+from khel_backend.schemas import RegisterIn, LoginIn, ResultIn, ProfileUpdateIn
 from config import FIREBASE_KEY, FIREBASE_BUCKET
 import uuid, firebase_admin, datetime
 from firebase_admin import credentials, storage
