@@ -24,7 +24,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://khelsakasham.web.app"],  # ⚠️ restrict in production
+    allow_origins=["https://khelsakasham.web.app",
+                   "https://khelsakasham.firebaseapp.com",],  # ⚠️ restrict in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
