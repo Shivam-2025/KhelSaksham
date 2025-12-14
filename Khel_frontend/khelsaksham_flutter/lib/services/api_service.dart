@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiService {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: "http://172.20.10.2:8080", // ⬅️ use 127.0.0.1 if running on real device with port forwarding
+      baseUrl: "https://khelsaksham.onrender.com", // ⬅️ use 127.0.0.1 if running on real device with port forwarding
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
     ),
