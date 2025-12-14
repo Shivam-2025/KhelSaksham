@@ -5,8 +5,9 @@ from jwt import ExpiredSignatureError, InvalidTokenError
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from khel_backend import database, models
-from khel_backend.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_HOURS
+import database 
+import models
+from config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_HOURS
 
 # -------------------------
 # Security Setup

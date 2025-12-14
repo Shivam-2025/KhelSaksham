@@ -2,8 +2,9 @@ from sqlalchemy import text
 from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
-from khel_backend import database, models
-from khel_backend.auth import (
+import database 
+import models
+from auth import (
     hash_password,
     verify_password,
     create_access_token,
@@ -11,8 +12,8 @@ from khel_backend.auth import (
     decode_token,
     get_current_user,
 )
-from khel_backend.schemas import RegisterIn, LoginIn, ResultIn, ProfileUpdateIn
-from khel_backend.config import FIREBASE_KEY, FIREBASE_BUCKET
+from schemas import RegisterIn, LoginIn, ResultIn, ProfileUpdateIn
+from config import FIREBASE_KEY, FIREBASE_BUCKET
 import uuid, firebase_admin, datetime
 from firebase_admin import credentials, storage
 
