@@ -6,8 +6,8 @@ class ApiService {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: "https://khelsaksham.onrender.com", // ⬅️ use 127.0.0.1 if running on real device with port forwarding
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 30),
     ),
   );
 
