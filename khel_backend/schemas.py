@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, Field, EmailStr, StringConstraints
 from typing import Optional, List, Literal, Dict
 from datetime import datetime
+from typing_extensions import Annotated
 
 # -------------------------
 # Auth
@@ -8,14 +9,20 @@ from datetime import datetime
 class RegisterIn(BaseModel):
     username: str
     email: EmailStr
-    password: str
+    password: Annotated[
+        str,
+        StringConstraints(min_length=8, max_length=72)
+    ]
     age: Optional[int] = 0
     location: Optional[str] = ""
     sport: Optional[str] = ""
 
 class LoginIn(BaseModel):
     email: EmailStr
-    password: str
+    password: Annotated[
+        str,
+        StringConstraints(min_length=8, max_length=72)
+    ]
 
 
 class TokenOut(BaseModel):

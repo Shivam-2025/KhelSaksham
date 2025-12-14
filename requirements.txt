@@ -20,3 +20,4 @@ python-dotenv==1.1.1
 email-validator==2.3.0
 firebase-admin
 python-multipart
+typing_extensions
