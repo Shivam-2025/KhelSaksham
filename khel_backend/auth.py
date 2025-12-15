@@ -12,7 +12,7 @@ from khel_backend.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_HOURS
 # -------------------------
 # Security Setup
 # -------------------------
-pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # OAuth2PasswordBearer expects a login route where tokens are retrieved
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
@@ -29,10 +29,13 @@ REFRESH_TOKEN_EXPIRE_DAYS = 7
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
-def verify_password(password: str, hashed: str) -> bool:
-    if not password or len(password.encode("utf-8")) > 72:
-        return False
-    return pwd_context.verify(password, hashed)
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    try:
+        return pwd_context.verify(plain_password, hashed_password)
+    except Exception:
+        # fallback for old/plain passwords
+        return plain_password == hashed_password
+
 
 # -------------------------
 # JWT Utils
