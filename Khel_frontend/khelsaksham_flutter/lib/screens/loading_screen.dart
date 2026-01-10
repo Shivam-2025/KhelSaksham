@@ -21,6 +21,7 @@ class _LoadingScreenState extends State<LoadingScreen> with TickerProviderStateM
       duration: Duration(milliseconds: 1000),
       vsync: this,
     )..repeat(reverse: true);
+    api.warmUpServer();
   }
 
   @override
