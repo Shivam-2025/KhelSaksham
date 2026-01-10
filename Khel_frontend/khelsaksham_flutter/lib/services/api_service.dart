@@ -18,6 +18,14 @@ class ApiService {
     _loadTokens(); // auto-load tokens when service starts
   }
 
+
+  Future<void> warmUpServer() async {
+  try {
+    await _dio.get("/health");
+  } catch (_) {
+    // ignore errors, just waking the server
+  }
+}
   // ---------------------------
   // Token Management
   // ---------------------------
